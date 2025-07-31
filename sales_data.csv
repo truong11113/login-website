@@ -1,0 +1,11 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+
+# Đọc file CSV (nếu đã upload vào Colab)
+df = pd.read_csv("sales_data.csv")
+df['Week'] = pd.to_datetime(df['Week'])
+df['Week_Num'] = df['Week'].dt.isocalendar().week
+df['Year'] = df['Week'].dt.year
